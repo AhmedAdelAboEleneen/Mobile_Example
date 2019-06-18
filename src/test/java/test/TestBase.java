@@ -22,11 +22,11 @@ public class TestBase {
 
         DesiredCapabilities object = new DesiredCapabilities();
 
-        object.setCapability("platformName", "Android");
+        object.setCapability("platformName", "");
 
-        object.setCapability("platformVersion", "6.0.1");
+        object.setCapability("platformVersion", "");
 
-        object.setCapability("deviceName", "Android Emulator");
+        object.setCapability("deviceName", "");
 
         object.setCapability("appPackage", "");
 
