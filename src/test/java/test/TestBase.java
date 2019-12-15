@@ -1,6 +1,7 @@
 package test;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -17,24 +18,45 @@ public class TestBase {
 
     public static WebDriver driver;
 
+    // Start driver for android
     @BeforeSuite
     public void startDriver() throws MalformedURLException {
 
-        DesiredCapabilities object = new DesiredCapabilities();
+        DesiredCapabilities AndroidObject = new DesiredCapabilities();
 
-        object.setCapability("platformName", "");
+        AndroidObject.setCapability("platformName", "");
 
-        object.setCapability("platformVersion", "");
+        AndroidObject.setCapability("platformVersion", "");
 
-        object.setCapability("deviceName", "");
+        AndroidObject.setCapability("deviceName", "");
 
-        object.setCapability("appPackage", "");
+        AndroidObject.setCapability("appPackage", "");
 
-        object.setCapability("appActivity", "");
+        AndroidObject.setCapability("appActivity", "");
 
-        driver = new AndroidDriver<WebElement>(new URL("http://localhost:4723/wd/hub"), object);
+        driver = new AndroidDriver<WebElement>(new URL("http://localhost:4723/wd/hub"), AndroidObject);
 
     }
+
+   /* // Start driver for iOS
+    @BeforeSuite
+    public void startDriver() throws MalformedURLException {
+
+        DesiredCapabilities iOSObject = new DesiredCapabilities();
+
+        iOSObject.setCapability("platformName", "");
+
+        iOSObject.setCapability("platformVersion", "");
+
+        iOSObject.setCapability("deviceName", "");
+
+        iOSObject.setCapability("appPackage", "");
+
+        iOSObject.setCapability("appActivity", "");
+
+        driver = new IOSDriver<WebElement>(new URL("http://localhost:4723/wd/hub"), iOSObject);
+
+    }*/
 
     @AfterSuite
     public void stopDriver() {
